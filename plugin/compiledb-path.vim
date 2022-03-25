@@ -19,7 +19,7 @@ def removeClosingSlash(path):
   return path
 
 def debugLog(msg):
-  print msg
+  print(msg)
   sys.stdout.flush()
 
 def searchForIncludePaths(compileCommandsPath, failIfNotFound):
