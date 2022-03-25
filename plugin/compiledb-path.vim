@@ -11,7 +11,7 @@ def pairwise(iterable):
     # pairwise('ABCDEFG') --> AB BC CD DE EF FG
     a, b = itertools.tee(iterable)
     next(b, None)
-    return itertools.zip(a, b)
+    return zip(a, b)
     
     
 def removeClosingSlash(path):
