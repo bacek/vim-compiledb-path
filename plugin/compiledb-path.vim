@@ -7,6 +7,13 @@ import sys
 import itertools
 import re
 
+def pairwise(iterable):
+    # pairwise('ABCDEFG') --> AB BC CD DE EF FG
+    a, b = tee(iterable)
+    next(b, None)
+    return zip(a, b)
+    
+    
 def removeClosingSlash(path):
   if path.endswith('/'):
     path = path[:-1]
@@ -24,7 +31,7 @@ def searchForIncludePaths(compileCommandsPath, failIfNotFound):
     for translationUnit in data:
       buildDir = translationUnit["directory"]
       switches = translationUnit["command"].split()
-      for currentSwitch, nextSwitch in itertools.pairwise(switches):
+      for currentSwitch, nextSwitch in pairwise(switches):
         matchObj = re.match( r'(-I|-isystem)(.*)', currentSwitch)
         includeDir = ""
         if currentSwitch == "-I" or currentSwitch == "-isystem":
