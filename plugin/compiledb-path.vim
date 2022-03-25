@@ -9,7 +9,7 @@ import re
 
 def pairwise(iterable):
     # pairwise('ABCDEFG') --> AB BC CD DE EF FG
-    a, b = tee(iterable)
+    a, b = itertools.tee(iterable)
     next(b, None)
     return itertools.zip(a, b)
     
