@@ -1,5 +1,5 @@
 function! AddIncludePathsOfCompileDbToVimPath(compileCommandsPath, failIfNotFound)
-python << endscript
+py3 << endscript
 import vim
 import os
 import json
